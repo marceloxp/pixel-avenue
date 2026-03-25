@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1a1a2e;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    user-select: none;
+}
+
+/* ── HUD ── */
+#hud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 30;
+    image-rendering: pixelated;
+}
+
+#hud h1 {
+    color: #ffe080;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px #a06000, 4px 4px #000;
+}
+
+.hud-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.hud-btn {
+    background: #333;
+    border: 2px solid #666;
+    color: #ccc;
+    padding: 4px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.hud-btn:hover {
+    background: #555;
+    color: #fff;
+}
+
+.hud-badge {
+    color: #80ff80;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px #004400;
+    animation: pulse 2s infinite;
+}
+
+/* ── SCENE ── */
+#scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    cursor: grab;
+}
+
+#scene.grabbing {
+    cursor: grabbing;
+}
+
+/* ── CANVAS ── */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.4
+    }
+
+    50% {
+        opacity: 0.9
+    }
+}
+
+/* ── TOOLTIP ── */
+#tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: #111;
+    border: 2px solid #ffe080;
+    color: #fff;
+    padding: 6px 14px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    display: none;
+    z-index: 50;
+    box-shadow: 3px 3px 0 #000;
+}
+
+#tooltip .tt-name {
+    color: #ffe080;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+#tooltip .tt-sub {
+    color: #aaa;
+    font-size: 0.7rem;
+}
